@@ -16,7 +16,9 @@ const VoiceRecorder = () => {
 
   const fetchUploadedFiles = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/audios");
+      const res = await axios.get(
+        "https://audioapi.learnwithdevelopers.me/audios"
+      );
       setUploadedFiles(res.data.files);
     } catch (error) {
       console.error("Failed to fetch uploaded files", error);
@@ -82,7 +84,7 @@ const VoiceRecorder = () => {
           setRecordingStatus("Uploading and converting to MP3...");
 
           const response = await axios.post(
-            "http://localhost:5000/upload",
+            "https://audioapi.learnwithdevelopers.me/upload",
             formData
           );
 
@@ -136,8 +138,6 @@ const VoiceRecorder = () => {
           </p>
         </div>
       )} */}
-
-
 
       <div style={{ marginTop: 30 }}>
         <h3>📁 MP3 Recordings</h3>
