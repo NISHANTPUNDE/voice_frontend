@@ -81,7 +81,7 @@ const VoiceRecorder = () => {
           const formData = new FormData();
           formData.append("audio", blob, `recording_${Date.now()}.webm`);
 
-          setRecordingStatus("Uploading and converting to MP3...");
+          setRecordingStatus("Uploading.");
 
           const response = await axios.post(
             "https://audioapi.learnwithdevelopers.me/upload",
@@ -153,10 +153,10 @@ const VoiceRecorder = () => {
               }}
             >
               <p>Recording #{uploadedFiles.length - i}</p>
-              <audio controls src={`http://localhost:5000${file}`}></audio>
+              <audio controls src={`https://audioapi.learnwithdevelopers.me${file}`}></audio>
               <div style={{ fontSize: 12, marginTop: 5 }}>
                 <a
-                  href={`http://localhost:5000${file}`}
+                  href={`https://audioapi.learnwithdevelopers.me${file}`}
                   download
                   target="_blank"
                   rel="noreferrer"
